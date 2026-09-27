@@ -1,0 +1,1316 @@
+```html
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CeylDigital | Jasa Joki Tugas & Desain Kreatif</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts: Sora (Display), Outfit (Heading), Plus Jakarta Sans (Body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Sora:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        lilac: {
+                            50: '#FAF7FF',
+                            100: '#F3ECFF',
+                            200: '#E6D5FF',
+                            300: '#D5B8FF',
+                            400: '#B892FF',
+                            500: '#A594F9',
+                            600: '#8A63F2',
+                            700: '#6C4AB6',
+                            800: '#4E2C96',
+                            900: '#2A1652',
+                        },
+                        cream: '#FFF9F2',
+                        pastelPink: '#FFDDF4',
+                        pastelYellow: '#FFF1C5',
+                        pastelMint: '#D8F3DC',
+                        darkText: '#1E162B'
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        display: ['Sora', 'sans-serif'],
+                        heading: ['Outfit', 'sans-serif']
+                    },
+                    borderRadius: {
+                        '3xl': '1.75rem',
+                        '4xl': '2.25rem',
+                        '5xl': '2.75rem',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Smooth Keyframe Animations for Floating & Sparkling Elements */
+        @keyframes floatGentle {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-12px) rotate(3deg); }
+        }
+        @keyframes floatPetal {
+            0% { transform: translateY(-20px) rotate(0deg) translateX(0px); opacity: 0; }
+            20% { opacity: 0.8; }
+            80% { opacity: 0.8; }
+            100% { transform: translateY(85vh) rotate(360deg) translateX(30px); opacity: 0; }
+        }
+        @keyframes pulseSparkle {
+            0%, 100% { opacity: 0.25; transform: scale(0.85); }
+            50% { opacity: 1; transform: scale(1.18) rotate(12deg); }
+        }
+        @keyframes subtleGlow {
+            0%, 100% { filter: drop-shadow(0 0 12px rgba(165, 148, 249, 0.25)); }
+            50% { filter: drop-shadow(0 0 22px rgba(165, 148, 249, 0.55)); }
+        }
+        @keyframes textShimmer {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .animate-float-gentle { animation: floatGentle 5.5s ease-in-out infinite; }
+        .animate-sparkle { animation: pulseSparkle 3s ease-in-out infinite; }
+        .animate-glow { animation: subtleGlow 4s ease-in-out infinite; }
+        
+        .gradient-text-shimmer {
+            background: linear-gradient(135deg, #6C4AB6 0%, #A594F9 50%, #B892FF 100%);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: textShimmer 6s ease infinite;
+        }
+
+        /* Scroll Reveal Effect */
+        .reveal-element {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform;
+        }
+        .reveal-element.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Sticker Card Styling with Soft Elevation */
+        .sticker-card {
+            background: #ffffff;
+            border: 2px solid #E6D5FF;
+            box-shadow: 0 12px 30px -8px rgba(165, 148, 249, 0.12), 0 4px 12px -2px rgba(165, 148, 249, 0.08);
+            transition: all 0.38s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .sticker-card:hover {
+            transform: translateY(-7px) scale(1.012);
+            border-color: #B892FF;
+            box-shadow: 0 22px 38px -10px rgba(138, 99, 242, 0.25);
+        }
+
+        /* Washi Tape Graphic Effect */
+        .washi-tape-top {
+            position: relative;
+        }
+        .washi-tape-top::before {
+            content: "";
+            position: absolute;
+            top: -11px;
+            left: 50%;
+            transform: translateX(-50%) rotate(-1.5deg);
+            width: 100px;
+            height: 22px;
+            background: rgba(229, 213, 255, 0.85);
+            backdrop-filter: blur(4px);
+            border-left: 2px dashed rgba(255, 255, 255, 0.8);
+            border-right: 2px dashed rgba(255, 255, 255, 0.8);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+            z-index: 10;
+        }
+
+        /* Button Glow Hover Effect */
+        .btn-glow {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        .btn-glow::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.35) 0%, transparent 65%);
+            opacity: 0;
+            transition: opacity 0.35s ease;
+            pointer-events: none;
+        }
+        .btn-glow:hover::after {
+            opacity: 1;
+        }
+
+        /* Glassmorphism Navigation */
+        .glass-nav {
+            background: rgba(250, 247, 255, 0.92);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(230, 213, 255, 0.8);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #FAF7FF; }
+        ::-webkit-scrollbar-thumb { background: #D5B8FF; border-radius: 99px; }
+        ::-webkit-scrollbar-thumb:hover { background: #A594F9; }
+    </style>
+</head>
+<body class="bg-[#FAF7FF] text-darkText font-sans overflow-x-hidden relative selection:bg-lilac-200 selection:text-lilac-900">
+
+    <!-- Floating Petals & Cute Decorative Elements (Non-intrusive) -->
+    <div class="fixed inset-0 pointer-events-none z-20 overflow-hidden" id="ambientDecorations">
+        <!-- Floating Flower Petal 1 -->
+        <div class="absolute top-[8%] left-[4%] text-lilac-300/70 animate-float-gentle">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2C13.5 6 18 7.5 22 12C18 16.5 13.5 18 12 22C10.5 18 6 16.5 2 12C6 7.5 10.5 2 12 2Z"/>
+            </svg>
+        </div>
+        <!-- Sparkle Star 2 -->
+        <div class="absolute top-[22%] right-[6%] text-lilac-400 animate-sparkle" style="animation-delay: 0.8s;">
+            <i class="fa-solid fa-sparkles text-xl"></i>
+        </div>
+        <!-- Soft Petal Falling Animation 3 -->
+        <div class="absolute top-[-5%] left-[15%] text-lilac-300 opacity-60" style="animation: floatPetal 16s linear infinite; animation-delay: 1s;">
+            <i class="fa-solid fa-seedling text-sm"></i>
+        </div>
+        <!-- Soft Petal Falling Animation 4 -->
+        <div class="absolute top-[-5%] right-[20%] text-lilac-300 opacity-50" style="animation: floatPetal 19s linear infinite; animation-delay: 5s;">
+            <i class="fa-solid fa-clover text-sm"></i>
+        </div>
+        <!-- Sparkle Star 5 -->
+        <div class="absolute top-[68%] left-[2%] text-lilac-400 animate-sparkle" style="animation-delay: 1.5s;">
+            <i class="fa-solid fa-star-of-life text-sm"></i>
+        </div>
+        <!-- Floating Camera/Folder Icon 6 -->
+        <div class="absolute top-[82%] right-[3%] text-lilac-300/80 animate-float-gentle" style="animation-delay: 2s;">
+            <i class="fa-solid fa-folder-open text-2xl"></i>
+        </div>
+    </div>
+
+    <!-- Brand Loading Screen -->
+    <div id="loader" class="fixed inset-0 z-[100] bg-lilac-100 flex flex-col items-center justify-center transition-opacity duration-500">
+        <div class="relative flex flex-col items-center">
+            <div class="w-16 h-16 mb-4 text-lilac-600 animate-spin" style="animation-duration: 9s;">
+                <svg viewBox="0 0 100 100" fill="currentColor">
+                    <path d="M50,15 C55,30 70,35 85,35 C70,45 75,65 60,75 C50,60 35,70 30,50 C35,35 20,30 35,20 C45,25 45,10 50,15 Z" />
+                </svg>
+            </div>
+            <span class="font-display font-extrabold text-3xl tracking-tight text-lilac-900">CeylDigital</span>
+            <span class="text-xs font-semibold tracking-widest text-lilac-600 uppercase mt-1">@jokibyceyl_</span>
+            <p class="text-xs text-lilac-700 mt-3 font-medium animate-pulse">Memuat CeylDigital Studio...</p>
+        </div>
+    </div>
+
+    <!-- Scroll Progress Bar -->
+    <div class="fixed top-0 left-0 h-1 bg-gradient-to-r from-lilac-400 via-lilac-500 to-purple-600 z-50 transition-all duration-150" id="progressBar" style="width: 0%;"></div>
+
+    <!-- Navbar -->
+    <header class="fixed top-0 left-0 right-0 z-40 glass-nav transition-all duration-300" id="mainHeader">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#home" class="flex items-center gap-3 group">
+                <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-lilac-600 to-lilac-400 flex items-center justify-center text-white shadow-md shadow-lilac-300 group-hover:scale-110 transition-transform duration-300">
+                    <i class="fa-solid fa-wand-magic-sparkles text-xl"></i>
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-display font-extrabold text-xl tracking-tight text-lilac-900 leading-none">CeylDigital</span>
+                    <span class="text-[10px] font-bold tracking-widest text-lilac-600 uppercase mt-1">@jokibyceyl_</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden md:flex items-center gap-7 font-bold text-sm text-lilac-900">
+                <a href="#home" class="hover:text-lilac-600 transition-colors">Home</a>
+                <a href="#layanan" class="hover:text-lilac-600 transition-colors">Layanan</a>
+                <a href="#cara-pesan" class="hover:text-lilac-600 transition-colors">Cara Pesan</a>
+                <a href="#benefit" class="hover:text-lilac-600 transition-colors">Keunggulan</a>
+                <a href="#portfolio" class="hover:text-lilac-600 transition-colors">Portfolio</a>
+                <a href="#ketentuan" class="hover:text-lilac-600 transition-colors">Ketentuan</a>
+                <a href="#order" class="px-5 py-2.5 rounded-full bg-lilac-600 text-white font-extrabold hover:bg-lilac-700 shadow-md shadow-lilac-200 transition-all transform hover:-translate-y-0.5 btn-glow">Pesan Sekarang</a>
+            </nav>
+
+            <!-- Mobile Menu Toggle Button -->
+            <button id="mobileMenuBtn" aria-label="Toggle Menu" class="md:hidden w-11 h-11 rounded-2xl bg-lilac-100 text-lilac-800 flex items-center justify-center hover:bg-lilac-200 transition-colors">
+                <i class="fa-solid fa-bars text-xl" id="menuIcon"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Drawer Menu -->
+        <div id="mobileDrawer" class="hidden md:hidden bg-white/95 backdrop-blur-xl border-b border-lilac-200 px-6 py-6 transition-all">
+            <div class="flex flex-col gap-4 font-bold text-lilac-900">
+                <a href="#home" class="mobile-link py-2 hover:text-lilac-600 border-b border-lilac-100 flex items-center justify-between">
+                    <span>Home</span> <i class="fa-solid fa-angle-right text-xs text-lilac-400"></i>
+                </a>
+                <a href="#layanan" class="mobile-link py-2 hover:text-lilac-600 border-b border-lilac-100 flex items-center justify-between">
+                    <span>Layanan & Price List</span> <i class="fa-solid fa-angle-right text-xs text-lilac-400"></i>
+                </a>
+                <a href="#cara-pesan" class="mobile-link py-2 hover:text-lilac-600 border-b border-lilac-100 flex items-center justify-between">
+                    <span>Cara Pesan</span> <i class="fa-solid fa-angle-right text-xs text-lilac-400"></i>
+                </a>
+                <a href="#benefit" class="mobile-link py-2 hover:text-lilac-600 border-b border-lilac-100 flex items-center justify-between">
+                    <span>Keunggulan</span> <i class="fa-solid fa-angle-right text-xs text-lilac-400"></i>
+                </a>
+                <a href="#portfolio" class="mobile-link py-2 hover:text-lilac-600 border-b border-lilac-100 flex items-center justify-between">
+                    <span>Portfolio Design</span> <i class="fa-solid fa-angle-right text-xs text-lilac-400"></i>
+                </a>
+                <a href="#ketentuan" class="mobile-link py-2 hover:text-lilac-600 border-b border-lilac-100 flex items-center justify-between">
+                    <span>Ketentuan</span> <i class="fa-solid fa-angle-right text-xs text-lilac-400"></i>
+                </a>
+                <a href="#order" class="mobile-link mt-2 py-3.5 text-center rounded-2xl bg-lilac-600 text-white font-extrabold shadow-md">
+                    Pesan Layanan Sekarang
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="home" class="relative pt-28 pb-16 lg:pt-36 lg:pb-24 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left Main Content -->
+                <div class="lg:col-span-7 text-center lg:text-left reveal-element">
+                    
+                    <!-- Username Badge -->
+                    <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-lilac-100 border border-lilac-300 text-lilac-800 text-xs sm:text-sm font-bold mb-6 shadow-sm hover:scale-105 transition-transform">
+                        <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping"></span>
+                        <i class="fa-brands fa-instagram text-sm"></i>
+                        <span>@jokibyceyl_</span>
+                        <span class="text-lilac-300">•</span>
+                        <span class="text-lilac-700 font-extrabold">CeylDigital Studio ✦</span>
+                    </div>
+
+                    <!-- Hero Main Title -->
+                    <h1 class="font-display font-extrabold text-4xl sm:text-6xl lg:text-7xl text-lilac-900 tracking-tight leading-[1.12] mb-6">
+                        JASA JOKI <br class="hidden sm:inline"/>
+                        <span class="relative inline-block gradient-text-shimmer">
+                            TUGAS & DESAIN
+                            <svg class="absolute left-0 -bottom-2 w-full h-4 text-lilac-400/80 animate-pulse" viewBox="0 0 250 20" fill="none" preserveAspectRatio="none">
+                                <path d="M3 14C50 4 150 18 247 6" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
+                            </svg>
+                        </span>
+                    </h1>
+
+                    <!-- Hero Subtext -->
+                    <p class="text-base sm:text-xl text-darkText/80 font-medium max-w-2xl mx-auto lg:mx-0 mb-8 leading-relaxed">
+                        Solusi tugas, dokumen & desain dalam satu tempat. Pengerjaan rapi, tepat waktu, dan hasil visual yang estetik sesuai request kamu.
+                    </p>
+
+                    <!-- CTAs -->
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 mb-10">
+                        <a href="#layanan" class="w-full sm:w-auto px-8 py-4 rounded-2xl bg-lilac-600 hover:bg-lilac-700 text-white font-extrabold text-base shadow-lg shadow-lilac-300/60 transition-all transform hover:-translate-y-1 btn-glow flex items-center justify-center gap-3 group">
+                            <span>Lihat Layanan</span>
+                            <i class="fa-solid fa-arrow-down text-sm group-hover:translate-y-1 transition-transform"></i>
+                        </a>
+                        <a href="#order" class="w-full sm:w-auto px-8 py-4 rounded-2xl bg-white hover:bg-lilac-50 text-lilac-900 border-2 border-lilac-300 font-extrabold text-base transition-all transform hover:-translate-y-1 flex items-center justify-center gap-2.5 shadow-sm">
+                            <i class="fa-brands fa-whatsapp text-emerald-500 text-xl"></i>
+                            <span>Pesan Sekarang</span>
+                        </a>
+                    </div>
+
+                    <!-- Decorative Badges -->
+                    <div class="flex flex-wrap items-center justify-center lg:justify-start gap-3 text-xs font-bold text-lilac-900">
+                        <span class="px-3.5 py-2 rounded-xl bg-white border border-lilac-200 flex items-center gap-2 shadow-sm hover:border-lilac-400 transition-colors">
+                            <i class="fa-solid fa-file-word text-lilac-600"></i> Penataan Makalah & File
+                        </span>
+                        <span class="px-3.5 py-2 rounded-xl bg-white border border-lilac-200 flex items-center gap-2 shadow-sm hover:border-lilac-400 transition-colors">
+                            <i class="fa-solid fa-palette text-lilac-600"></i> Desain Canva Aesthetic
+                        </span>
+                        <span class="px-3.5 py-2 rounded-xl bg-white border border-lilac-200 flex items-center gap-2 shadow-sm hover:border-lilac-400 transition-colors">
+                            <i class="fa-solid fa-clock text-lilac-600"></i> Tepat Waktu
+                        </span>
+                    </div>
+
+                </div>
+
+                <!-- Right Visual Section -->
+                <div class="lg:col-span-5 relative flex justify-center reveal-element">
+                    
+                    <div class="relative w-full max-w-md washi-tape-top">
+                        <div class="sticker-card rounded-4xl p-6 sm:p-8 bg-gradient-to-b from-white via-lilac-50/50 to-white relative overflow-hidden">
+                            
+                            <div class="flex items-center justify-between border-b border-lilac-100 pb-4 mb-6">
+                                <div class="flex items-center gap-2">
+                                    <div class="w-3 h-3 rounded-full bg-rose-400"></div>
+                                    <div class="w-3 h-3 rounded-full bg-amber-400"></div>
+                                    <div class="w-3 h-3 rounded-full bg-emerald-400"></div>
+                                </div>
+                                <span class="text-xs font-mono font-bold text-lilac-600">CeylDigital</span>
+                            </div>
+
+                            <div class="relative bg-gradient-to-br from-lilac-100 to-purple-100/60 rounded-3xl p-6 text-center border border-lilac-200 mb-6 flex flex-col items-center justify-center group cursor-pointer animate-glow">
+                                
+                                <div class="w-24 h-24 mb-3 text-lilac-800 group-hover:scale-105 transition-transform duration-300">
+                                    <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                        <rect x="18" y="42" width="64" height="38" rx="4" fill="#FFFFFF"/>
+                                        <line x1="12" y1="80" x2="88" y2="80" stroke-width="4"/>
+                                        <rect x="26" y="48" width="24" height="22" rx="2" fill="#E6D5FF"/>
+                                        <line x1="56" y1="52" x2="74" y2="52"/>
+                                        <line x1="56" y1="59" x2="74" y2="59"/>
+                                        <line x1="56" y1="66" x2="70" y2="66"/>
+                                        <path d="M22 22 L25 29 L32 32 L25 35 L22 42 L19 35 L12 32 L19 29 Z" fill="#A594F9" stroke="none"/>
+                                        <path d="M78 18 L80 23 L85 25 L80 27 L78 32 L76 27 L71 25 L76 23 Z" fill="#B892FF" stroke="none"/>
+                                    </svg>
+                                </div>
+
+                                <h3 class="font-heading font-extrabold text-2xl text-lilac-900">Beresin Tugas Tanpa Pusing</h3>
+                                <p class="text-xs text-lilac-700 font-semibold mt-1">Makalah • PPT • Canva • Mindmap • Formatting</p>
+                            </div>
+
+                            <div class="space-y-3">
+                                <div class="p-3.5 rounded-2xl bg-white border border-lilac-100 flex items-center justify-between text-xs font-bold text-darkText">
+                                    <span class="flex items-center gap-2">
+                                        <i class="fa-solid fa-circle-check text-lilac-600"></i> Pengerjaan Cepat & Rapi
+                                    </span>
+                                    <span class="text-lilac-700 bg-lilac-100 px-2.5 py-1 rounded-lg">High Quality</span>
+                                </div>
+                                <div class="p-3.5 rounded-2xl bg-white border border-lilac-100 flex items-center justify-between text-xs font-bold text-darkText">
+                                    <span class="flex items-center gap-2">
+                                        <i class="fa-solid fa-shield-halved text-lilac-600"></i> Kerahasiaan File 100%
+                                    </span>
+                                    <span class="text-lilac-700 bg-lilac-100 px-2.5 py-1 rounded-lg">Aman</span>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- Floating Cute Badge Left -->
+                        <div class="absolute -bottom-6 -left-6 bg-white border-2 border-lilac-200 p-4 rounded-3xl shadow-xl rotate-[-5deg] flex items-center gap-3 animate-float-gentle hidden sm:flex">
+                            <div class="w-10 h-10 rounded-2xl bg-pastelYellow flex items-center justify-center text-amber-600 text-lg">
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                            <div class="pr-2">
+                                <p class="text-[10px] font-extrabold text-lilac-600 uppercase">Garansi Revisi</p>
+                                <p class="text-xs font-extrabold text-lilac-900">Minimal 3x Revisi Gratis</p>
+                            </div>
+                        </div>
+
+                        <!-- Floating Cute Badge Right -->
+                        <div class="absolute -top-6 -right-6 w-12 h-12 bg-lilac-500 text-white rounded-full flex items-center justify-center text-xl shadow-lg animate-sparkle">
+                            ✦
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 2: MINI SERVICE HIGHLIGHT -->
+    <section class="py-12 bg-lilac-50/70 border-y border-lilac-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
+                
+                <!-- Highlight 1 -->
+                <div class="sticker-card p-5 rounded-3xl flex flex-col items-center text-center group cursor-pointer reveal-element">
+                    <div class="w-14 h-14 rounded-2xl bg-lilac-100 text-lilac-700 flex items-center justify-center text-2xl mb-3 group-hover:scale-110 group-hover:bg-lilac-600 group-hover:text-white transition-all">
+                        <i class="fa-solid fa-stopwatch"></i>
+                    </div>
+                    <h4 class="font-heading font-extrabold text-base text-lilac-900 tracking-tight">TEPAT WAKTU</h4>
+                    <p class="text-xs text-lilac-700 font-semibold mt-1">Selesai sesuai deadline kesepakatan</p>
+                </div>
+
+                <!-- Highlight 2 -->
+                <div class="sticker-card p-5 rounded-3xl flex flex-col items-center text-center group cursor-pointer reveal-element">
+                    <div class="w-14 h-14 rounded-2xl bg-lilac-100 text-lilac-700 flex items-center justify-center text-2xl mb-3 group-hover:scale-110 group-hover:bg-lilac-600 group-hover:text-white transition-all">
+                        <i class="fa-solid fa-comments"></i>
+                    </div>
+                    <h4 class="font-heading font-extrabold text-base text-lilac-900 tracking-tight">FAST RESPONSE</h4>
+                    <p class="text-xs text-lilac-700 font-semibold mt-1">Ramah & siap membantu kapan pun</p>
+                </div>
+
+                <!-- Highlight 3 -->
+                <div class="sticker-card p-5 rounded-3xl flex flex-col items-center text-center group cursor-pointer reveal-element">
+                    <div class="w-14 h-14 rounded-2xl bg-lilac-100 text-lilac-700 flex items-center justify-center text-2xl mb-3 group-hover:scale-110 group-hover:bg-lilac-600 group-hover:text-white transition-all">
+                        <i class="fa-solid fa-rotate-left"></i>
+                    </div>
+                    <h4 class="font-heading font-extrabold text-base text-lilac-900 tracking-tight">REVISI MINIMAL 3x</h4>
+                    <p class="text-xs text-lilac-700 font-semibold mt-1">Garansi hasil rapi & memuaskan</p>
+                </div>
+
+                <!-- Highlight 4 -->
+                <div class="sticker-card p-5 rounded-3xl flex flex-col items-center text-center group cursor-pointer reveal-element">
+                    <div class="w-14 h-14 rounded-2xl bg-lilac-100 text-lilac-700 flex items-center justify-center text-2xl mb-3 group-hover:scale-110 group-hover:bg-lilac-600 group-hover:text-white transition-all">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                    </div>
+                    <h4 class="font-heading font-extrabold text-base text-lilac-900 tracking-tight">DESAIN SESUAI REQUEST</h4>
+                    <p class="text-xs text-lilac-700 font-semibold mt-1">Bisa custom warna, tema & gaya</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: LAYANAN KAMI & PRICELIST -->
+    <section id="layanan" class="py-20 bg-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal-element">
+                <span class="px-4 py-1.5 rounded-full bg-lilac-100 text-lilac-800 text-xs font-extrabold uppercase tracking-wider">✦ Pricelist CeylDigital ✦</span>
+                <h2 class="font-display font-extrabold text-3xl sm:text-5xl text-lilac-900 mt-3">Layanan Kami</h2>
+                <p class="text-base text-darkText/70 mt-2 font-medium">Klik pada item layanan untuk melihat detail deskripsi, estimasi, dan opsi pesan langsung.</p>
+            </div>
+
+            <div class="grid lg:grid-cols-3 gap-8">
+                
+                <!-- Category 1: MAKALAH -->
+                <div class="sticker-card rounded-4xl p-6 sm:p-8 bg-gradient-to-b from-white to-lilac-50/40 relative reveal-element">
+                    <div class="flex items-center gap-4 mb-6 pb-4 border-b border-lilac-200">
+                        <div class="w-14 h-14 rounded-2xl bg-lilac-500 text-white flex items-center justify-center text-2xl shadow-md">
+                            <i class="fa-solid fa-book-open"></i>
+                        </div>
+                        <div>
+                            <span class="text-xs font-extrabold text-lilac-600 uppercase tracking-widest">Kategori 01</span>
+                            <h3 class="font-display font-extrabold text-2xl text-lilac-900">Makalah</h3>
+                        </div>
+                    </div>
+
+                    <div class="space-y-3">
+                        <div onclick="openServiceModal('Makalah (Ada Materi)', '4.000', 'per slide/halaman', 'Menyusun makalah atau rangkuman secara rapi dengan materi yang sudah kamu sediakan.', '1-2 Hari')" class="p-4 rounded-2xl bg-white border border-lilac-200 hover:border-lilac-500 flex items-center justify-between cursor-pointer transition-all hover:translate-x-1 shadow-sm group">
+                            <div>
+                                <h4 class="font-bold text-sm text-lilac-900 group-hover:text-lilac-600">Ada materi</h4>
+                                <span class="text-xs text-lilac-600 font-medium">Klik untuk detail</span>
+                            </div>
+                            <span class="font-heading font-extrabold text-base text-lilac-800 bg-lilac-100 px-3 py-1 rounded-xl">4k<span class="text-xs font-normal">/slide</span></span>
+                        </div>
+
+                        <div onclick="openServiceModal('Makalah (No Materi)', '2.000', 'per slide/halaman', 'Bantuan penataan dan penyusunan struktur makalah awal dari outline yang disepakati.', '1-2 Hari')" class="p-4 rounded-2xl bg-white border border-lilac-200 hover:border-lilac-500 flex items-center justify-between cursor-pointer transition-all hover:translate-x-1 shadow-sm group">
+                            <div>
+                                <h4 class="font-bold text-sm text-lilac-900 group-hover:text-lilac-600">No materi</h4>
+                                <span class="text-xs text-lilac-600 font-medium">Klik untuk detail</span>
+                            </div>
+                            <span class="font-heading font-extrabold text-base text-lilac-800 bg-lilac-100 px-3 py-1 rounded-xl">2k<span class="text-xs font-normal">/slide</span></span>
+                        </div>
+
+                        <div onclick="openServiceModal('Rangkuman File', '6.000', 'per file', 'Merangkum poin penting dari dokumen PDF/Word menjadi catatan ringkas & rapi.', '24 Jam')" class="p-4 rounded-2xl bg-white border border-lilac-200 hover:border-lilac-500 flex items-center justify-between cursor-pointer transition-all hover:translate-x-1 shadow-sm group">
+                            <div>
+                                <h4 class="font-bold text-sm text-lilac-900 group-hover:text-lilac-600">Rangkuman File</h4>
+                                <span class="text-xs text-lilac-600 font-medium">Klik untuk detail</span>
+                            </div>
+                            <span class="font-heading font-extrabold text-base text-lilac-800 bg-lilac-100 px-3 py-1 rounded-xl">6k</span>
+                        </div>
+
+                        <div onclick="openServiceModal('Rangkuman Video', '8.000', 'per video', 'Mencatat dan merangkum poin-poin utama dari rekaman/video pembelajaran.', '24 Jam')" class="p-4 rounded-2xl bg-white border border-lilac-200 hover:border-lilac-500 flex items-center justify-between cursor-pointer transition-all hover:translate-x-1 shadow-sm group">
+                            <div>
+                                <h4 class="font-bold text-sm text-lilac-900 group-hover:text-lilac-600">Rangkuman Video</h4>
+                                <span class="text-xs text-lilac-600 font-medium">Klik untuk detail</span>
+                            </div>
+                            <span class="font-heading font-extrabold text-base text-lilac-800 bg-lilac-100 px-3 py-1 rounded-xl">8k</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Category 2: EDIT DOKUMEN -->
+                <div class="sticker-card rounded-4xl p-6 sm:p-8 bg-gradient-to-b from-white to-lilac-50/40 relative reveal-element">
+                    <div class="flex items-center gap-4 mb-6 pb-4 border-b border-lilac-200">
+                        <div class="w-14 h-14 rounded-2xl bg-lilac-500 text-white flex items-center justify-center text-2xl shadow-md">
+                            <i class="fa-solid fa-file-pen"></i>
+                        </div>
+                        <div>
+                            <span class="text-xs font-extrabold text-lilac-600 uppercase tracking-widest">Kategori 02</span>
+                            <h3 class="font-display font-extrabold text-2xl text-lilac-900">Edit Dokumen</h3>
+                        </div>
+                    </div>
+
+                    <div class="space-y-3">
+                        <div onclick="openServiceModal('Daftar Pustaka', '5.000', 'per dokumen', 'Penyusunan daftar pustaka sesuai format standar (APA, Harvard, dll).', '12-24 Jam')" class="p-4 rounded-2xl bg-white border border-lilac-200 hover:border-lilac-500 flex items-center justify-between cursor-pointer transition-all hover:translate-x-1 shadow-sm group">
+                            <div>
+                                <h4 class="font-bold text-sm text-lilac-900 group-hover:text-lilac-600">Daftar Pustaka</h4>
+                                <span class="text-xs text-lilac-600 font-medium">Klik untuk detail</span>
+                            </div>
+                            <span class="font-heading font-extrabold text-base text-lilac-800 bg-lilac-100 px-3 py-1 rounded-xl">5k</span>
+                        </div>
+
+                        <div onclick="openServiceModal('Daftar Isi', '10.000', 'per dokumen', 'Pembuatan Daftar Isi otomatis yang rapi dan terstruktur.', '12-24 Jam')" class="p-4 rounded-2xl bg-white border border-lilac-200 hover:border-lilac-500 flex items-center justify-between cursor-pointer transition-all hover:translate-x-1 shadow-sm group">
+                            <div>
+                                <h4 class="font-bold text-sm text-lilac-900 group-hover:text-lilac-600">Daftar Isi</h4>
+                                <span class="text-xs text-lilac-600 font-medium">Klik untuk detail</span>
+                            </div>
+                            <span class="font-heading font-extrabold text-base text-lilac-800 bg-lilac-100 px-3 py-1 rounded-xl">10k</span>
+                        </div>
+
+                        <div onclick="openServiceModal('Daftar Halaman', '10.000', 'per dokumen', 'Pengaturan penomoran halaman (Romawi/Angka) sesuai aturan.', '12-24 Jam')" class="p-4 rounded-2xl bg-white border border-lilac-200 hover:border-lilac-500 flex items-center justify-between cursor-pointer transition-all hover:translate-x-1 shadow-sm group">
+                            <div>
+                                <h4 class="font-bold text-sm text-lilac-900 group-hover:text-lilac-600">Daftar Halaman</h4>
+                                <span class="text-xs text-lilac-600 font-medium">Klik untuk detail</span>
+                            </div>
+                            <span class="font-heading font-extrabold text-base text-lilac-800 bg-lilac-100 px-3 py-1 rounded-xl">10k</span>
+                        </div>
+
+                        <div onclick="openServiceModal('Merapikan Dokumen', '2.000', 'per slide/halaman', 'Merapikan margin, font, spasi, dan tata letak paragraf dokumen.', '24 Jam')" class="p-4 rounded-2xl bg-white border border-lilac-200 hover:border-lilac-500 flex items-center justify-between cursor-pointer transition-all hover:translate-x-1 shadow-sm group">
+                            <div>
+                                <h4 class="font-bold text-sm text-lilac-900 group-hover:text-lilac-600">Merapikan Dokumen</h4>
+                                <span class="text-xs text-lilac-600 font-medium">Klik untuk detail</span>
+                            </div>
+                            <span class="font-heading font-extrabold text-base text-lilac-800 bg-lilac-100 px-3 py-1 rounded-xl">2k<span class="text-xs font-normal">/slide</span></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Category 3: DESAIN CANVA -->
+                <div class="sticker-card rounded-4xl p-6 sm:p-8 bg-gradient-to-b from-white to-lilac-50/40 relative reveal-element">
+                    <div class="flex items-center gap-4 mb-6 pb-4 border-b border-lilac-200">
+                        <div class="w-14 h-14 rounded-2xl bg-lilac-500 text-white flex items-center justify-center text-2xl shadow-md">
+                            <i class="fa-solid fa-palette"></i>
+                        </div>
+                        <div>
+                            <span class="text-xs font-extrabold text-lilac-600 uppercase tracking-widest">Kategori 03</span>
+                            <h3 class="font-display font-extrabold text-2xl text-lilac-900">Desain Canva</h3>
+                        </div>
+                    </div>
+
+                    <div class="space-y-2.5">
+                        <div onclick="openServiceModal('Desain Poster', '5.000', 'per item', 'Pembuatan poster acara, edukasi, atau promosi estetik.', '1 Hari')" class="p-3.5 rounded-2xl bg-white border border-lilac-200 hover:border-lilac-500 flex items-center justify-between cursor-pointer transition-all hover:translate-x-1 shadow-sm group">
+                            <span class="font-bold text-xs text-lilac-900 group-hover:text-lilac-600">Desain Poster</span>
+                            <span class="font-heading font-extrabold text-sm text-lilac-800 bg-lilac-100 px-2.5 py-1 rounded-lg">5k</span>
+                        </div>
+
+                        <div onclick="openServiceModal('PowerPoint', '2.000', 'per slide', 'Desain presentasi PowerPoint Canva modern & menarik.', '1-2 Hari')" class="p-3.5 rounded-2xl bg-white border border-lilac-200 hover:border-lilac-500 flex items-center justify-between cursor-pointer transition-all hover:translate-x-1 shadow-sm group">
+                            <span class="font-bold text-xs text-lilac-900 group-hover:text-lilac-600">PowerPoint (PPT)</span>
+                            <span class="font-heading font-extrabold text-sm text-lilac-800 bg-lilac-100 px-2.5 py-1 rounded-lg">2k/slide</span>
+                        </div>
+
+                        <div onclick="openServiceModal('Logo Profil', '5.000', 'per item', 'Desain avatar / logo profil media sosial minimalis.', '1 Hari')" class="p-3.5 rounded-2xl bg-white border border-lilac-200 hover:border-lilac-500 flex items-center justify-between cursor-pointer transition-all hover:translate-x-1 shadow-sm group">
+                            <span class="font-bold text-xs text-lilac-900 group-hover:text-lilac-600">Logo Profil</span>
+                            <span class="font-heading font-extrabold text-sm text-lilac-800 bg-lilac-100 px-2.5 py-1 rounded-lg">5k</span>
+                        </div>
+
+                        <div onclick="openServiceModal('Struktur Kelas / Organisasi', '5.000', 'per item', 'Desain Bagan / Struktur organisasi rapi & berwarna.', '1 Hari')" class="p-3.5 rounded-2xl bg-white border border-lilac-200 hover:border-lilac-500 flex items-center justify-between cursor-pointer transition-all hover:translate-x-1 shadow-sm group">
+                            <span class="font-bold text-xs text-lilac-900 group-hover:text-lilac-600">Struktur Organisasi</span>
+                            <span class="font-heading font-extrabold text-sm text-lilac-800 bg-lilac-100 px-2.5 py-1 rounded-lg">5k</span>
+                        </div>
+
+                        <div onclick="openServiceModal('Mind Mapping', '8.000', 'per item', 'Desain pemetaan konsep / Mindmap estetik & mudah dibaca.', '1 Hari')" class="p-3.5 rounded-2xl bg-white border border-lilac-200 hover:border-lilac-500 flex items-center justify-between cursor-pointer transition-all hover:translate-x-1 shadow-sm group">
+                            <span class="font-bold text-xs text-lilac-900 group-hover:text-lilac-600">Mind Mapping</span>
+                            <span class="font-heading font-extrabold text-sm text-lilac-800 bg-lilac-100 px-2.5 py-1 rounded-lg">8k</span>
+                        </div>
+
+                        <div onclick="openServiceModal('Banner / Spanduk', '15.000', 'per item', 'Desain spanduk/banner acara resolusi tinggi siap cetak.', '1-2 Hari')" class="p-3.5 rounded-2xl bg-white border border-lilac-200 hover:border-lilac-500 flex items-center justify-between cursor-pointer transition-all hover:translate-x-1 shadow-sm group">
+                            <span class="font-bold text-xs text-lilac-900 group-hover:text-lilac-600">Banner / Spanduk</span>
+                            <span class="font-heading font-extrabold text-sm text-lilac-800 bg-lilac-100 px-2.5 py-1 rounded-lg">15k</span>
+                        </div>
+
+                        <div onclick="openServiceModal('Twibbon', '10.000', 'per item', 'Desain frame Twibbon PNG transparan.', '1 Hari')" class="p-3.5 rounded-2xl bg-white border border-lilac-200 hover:border-lilac-500 flex items-center justify-between cursor-pointer transition-all hover:translate-x-1 shadow-sm group">
+                            <span class="font-bold text-xs text-lilac-900 group-hover:text-lilac-600">Twibbon</span>
+                            <span class="font-heading font-extrabold text-sm text-lilac-800 bg-lilac-100 px-2.5 py-1 rounded-lg">10k</span>
+                        </div>
+
+                        <div onclick="openServiceModal('Portofolio', '5.000', 'per slide', 'Desain layout Portofolio karya / pengalaman.', '1-2 Hari')" class="p-3.5 rounded-2xl bg-white border border-lilac-200 hover:border-lilac-500 flex items-center justify-between cursor-pointer transition-all hover:translate-x-1 shadow-sm group">
+                            <span class="font-bold text-xs text-lilac-900 group-hover:text-lilac-600">Portofolio</span>
+                            <span class="font-heading font-extrabold text-sm text-lilac-800 bg-lilac-100 px-2.5 py-1 rounded-lg">5k/slide</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SERVICE DETAIL INTERACTIVE MODAL -->
+    <div id="serviceModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-darkText/50 backdrop-blur-sm opacity-0 pointer-events-none transition-all duration-300">
+        <div class="bg-white border-2 border-lilac-300 rounded-4xl max-w-md w-full p-6 sm:p-8 shadow-2xl relative transform scale-95 transition-all duration-300" id="serviceModalContent">
+            
+            <button onclick="closeServiceModal()" class="absolute top-5 right-5 w-9 h-9 rounded-full bg-lilac-100 text-lilac-800 flex items-center justify-center hover:bg-lilac-200 transition-colors">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-lilac-100 text-lilac-800 text-xs font-bold mb-3">
+                <i class="fa-solid fa-wand-magic-sparkles text-xs"></i>
+                <span>CeylDigital Service</span>
+            </div>
+
+            <h3 id="modalTitle" class="font-display font-extrabold text-2xl text-lilac-900 mb-2">Nama Layanan</h3>
+            <p id="modalDesc" class="text-sm text-darkText/80 font-medium mb-6 leading-relaxed">Deskripsi singkat layanan akan ditampilkan di sini.</p>
+
+            <div class="p-4 rounded-2xl bg-lilac-50 border border-lilac-200 mb-6 space-y-2">
+                <div class="flex justify-between text-xs font-semibold">
+                    <span class="text-lilac-700">Harga Base:</span>
+                    <span id="modalPrice" class="font-extrabold text-lilac-900 text-sm">Rp 0</span>
+                </div>
+                <div class="flex justify-between text-xs font-semibold">
+                    <span class="text-lilac-700">Estimasi Selesai:</span>
+                    <span id="modalEstimate" class="font-bold text-lilac-900">1-2 Hari</span>
+                </div>
+            </div>
+
+            <button onclick="selectServiceFromModal()" class="w-full py-3.5 rounded-2xl bg-lilac-600 hover:bg-lilac-700 text-white font-extrabold text-sm shadow-md transition-all btn-glow flex items-center justify-center gap-2">
+                <i class="fa-solid fa-check"></i>
+                <span>Pilih & Isi Form Pemesanan</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- SECTION 5: CARA PESAN TIMELINE -->
+    <section id="cara-pesan" class="py-20 bg-gradient-to-b from-white to-lilac-50/60 border-t border-lilac-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-2xl mx-auto mb-16 reveal-element">
+                <span class="px-4 py-1.5 rounded-full bg-lilac-100 text-lilac-800 text-xs font-extrabold uppercase">Langkah Mudah</span>
+                <h2 class="font-display font-extrabold text-3xl sm:text-5xl text-lilac-900 mt-3">Cara Pesan</h2>
+                <p class="text-base text-darkText/70 mt-2 font-medium">Proses pengerjaan simpel, cepat, dan terorganisir.</p>
+            </div>
+
+            <div class="grid md:grid-cols-4 gap-6 relative">
+                
+                <!-- Step 1 -->
+                <div class="sticker-card p-6 rounded-3xl bg-white relative reveal-element">
+                    <div class="w-12 h-12 rounded-2xl bg-lilac-600 text-white font-display font-black text-lg flex items-center justify-center mb-4 shadow-md">
+                        01
+                    </div>
+                    <h3 class="font-heading font-extrabold text-lg text-lilac-900 mb-2">Pilih Layanan</h3>
+                    <p class="text-xs text-darkText/80 font-medium leading-relaxed">
+                        Tentukan jenis layanan tugas, penataan dokumen, atau desain Canva yang kamu butuhkan.
+                    </p>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="sticker-card p-6 rounded-3xl bg-white relative reveal-element">
+                    <div class="w-12 h-12 rounded-2xl bg-lilac-600 text-white font-display font-black text-lg flex items-center justify-center mb-4 shadow-md">
+                        02
+                    </div>
+                    <h3 class="font-heading font-extrabold text-lg text-lilac-900 mb-2">Kirim Detail & File</h3>
+                    <p class="text-xs text-darkText/80 font-medium leading-relaxed">
+                        Isi form order atau kirim detail instruksi, outline, serta materi pendukung via WhatsApp.
+                    </p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="sticker-card p-6 rounded-3xl bg-white relative reveal-element">
+                    <div class="w-12 h-12 rounded-2xl bg-lilac-600 text-white font-display font-black text-lg flex items-center justify-center mb-4 shadow-md">
+                        03
+                    </div>
+                    <h3 class="font-heading font-extrabold text-lg text-lilac-900 mb-2">Proses Pengerjaan</h3>
+                    <p class="text-xs text-darkText/80 font-medium leading-relaxed">
+                        Tim CeylDigital memproses pesananmu dengan teliti sesuai instruksi dan deadline.
+                    </p>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="sticker-card p-6 rounded-3xl bg-white relative reveal-element">
+                    <div class="w-12 h-12 rounded-2xl bg-lilac-600 text-white font-display font-black text-lg flex items-center justify-center mb-4 shadow-md">
+                        04
+                    </div>
+                    <h3 class="font-heading font-extrabold text-lg text-lilac-900 mb-2">Selesai & Bayar</h3>
+                    <p class="text-xs text-darkText/80 font-medium leading-relaxed">
+                        Cek hasil pengerjaan, ajukan revisi jika diperlukan, lalu selesaikan pembayaran.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION 6: KENAPA PILIH KAMI? -->
+    <section id="benefit" class="py-20 bg-white border-t border-lilac-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-2xl mx-auto mb-16 reveal-element">
+                <span class="px-4 py-1.5 rounded-full bg-lilac-100 text-lilac-800 text-xs font-extrabold uppercase">Keunggulan Brand</span>
+                <h2 class="font-display font-extrabold text-3xl sm:text-5xl text-lilac-900 mt-3">Kenapa Pilih CeylDigital?</h2>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <div class="sticker-card p-6 rounded-3xl bg-lilac-50/50 border border-lilac-200 flex items-start gap-4 reveal-element">
+                    <div class="w-12 h-12 rounded-2xl bg-lilac-200 text-lilac-800 flex items-center justify-center text-xl flex-shrink-0">
+                        <i class="fa-solid fa-check"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-heading font-extrabold text-lg text-lilac-900">Tepat Waktu</h4>
+                        <p class="text-xs text-darkText/80 font-medium mt-1">Selalu mengutamakan komitmen waktu sesuai kesepakatan awal.</p>
+                    </div>
+                </div>
+
+                <div class="sticker-card p-6 rounded-3xl bg-lilac-50/50 border border-lilac-200 flex items-start gap-4 reveal-element">
+                    <div class="w-12 h-12 rounded-2xl bg-lilac-200 text-lilac-800 flex items-center justify-center text-xl flex-shrink-0">
+                        <i class="fa-solid fa-comments"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-heading font-extrabold text-lg text-lilac-900">Fast Response</h4>
+                        <p class="text-xs text-darkText/80 font-medium mt-1">Admin cepat membalas chat dan sigap mendengarkan kebutuhanmu.</p>
+                    </div>
+                </div>
+
+                <div class="sticker-card p-6 rounded-3xl bg-lilac-50/50 border border-lilac-200 flex items-start gap-4 reveal-element">
+                    <div class="w-12 h-12 rounded-2xl bg-lilac-200 text-lilac-800 flex items-center justify-center text-xl flex-shrink-0">
+                        <i class="fa-solid fa-palette"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-heading font-extrabold text-lg text-lilac-900">Bisa Request Desain</h4>
+                        <p class="text-xs text-darkText/80 font-medium mt-1">Bebas kirim referensi warna, style, maupun template favorit.</p>
+                    </div>
+                </div>
+
+                <div class="sticker-card p-6 rounded-3xl bg-lilac-50/50 border border-lilac-200 flex items-start gap-4 reveal-element">
+                    <div class="w-12 h-12 rounded-2xl bg-lilac-200 text-lilac-800 flex items-center justify-center text-xl flex-shrink-0">
+                        <i class="fa-solid fa-rotate-left"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-heading font-extrabold text-lg text-lilac-900">Revisi Minimal 3x</h4>
+                        <p class="text-xs text-darkText/80 font-medium mt-1">Garansi perbaikan agar dokumen & hasil desain benar-benar pas.</p>
+                    </div>
+                </div>
+
+                <div class="sticker-card p-6 rounded-3xl bg-lilac-50/50 border border-lilac-200 flex items-start gap-4 reveal-element">
+                    <div class="w-12 h-12 rounded-2xl bg-lilac-200 text-lilac-800 flex items-center justify-center text-xl flex-shrink-0">
+                        <i class="fa-solid fa-tags"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-heading font-extrabold text-lg text-lilac-900">Harga Terjangkau</h4>
+                        <p class="text-xs text-darkText/80 font-medium mt-1">Tarif hemat mulai dari 2k/slide dengan kualitas premium.</p>
+                    </div>
+                </div>
+
+                <div class="sticker-card p-6 rounded-3xl bg-lilac-50/50 border border-lilac-200 flex items-start gap-4 reveal-element">
+                    <div class="w-12 h-12 rounded-2xl bg-lilac-200 text-lilac-800 flex items-center justify-center text-xl flex-shrink-0">
+                        <i class="fa-solid fa-handshake"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-heading font-extrabold text-lg text-lilac-900">Bisa Konsultasi Dulu</h4>
+                        <p class="text-xs text-darkText/80 font-medium mt-1">Tanya-tanya dan diskusi gratis sebelum kamu memutuskan fix order.</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION 7: PORTFOLIO SHOWCASE -->
+    <section id="portfolio" class="py-20 bg-lilac-50/50 border-t border-lilac-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-2xl mx-auto mb-12 reveal-element">
+                <span class="px-4 py-1.5 rounded-full bg-lilac-100 text-lilac-800 text-xs font-extrabold uppercase">Hasil Karya</span>
+                <h2 class="font-display font-extrabold text-3xl sm:text-5xl text-lilac-900 mt-3">Portfolio Desain</h2>
+                <p class="text-base text-darkText/70 mt-2 font-medium">Beberapa sampel contoh pengerjaan desain Canva dan penataan materi CeylDigital.</p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
+                
+                <!-- Sample 1 -->
+                <div onclick="openLightbox('https://placehold.co/800x600/E6D5FF/2A1652?text=CeylDigital+PowerPoint+Design', 'Desain PPT Presentation Canva')" class="sticker-card rounded-3xl overflow-hidden group cursor-pointer reveal-element relative">
+                    <img src="https://placehold.co/600x450/E6D5FF/2A1652?text=PowerPoint+Aesthetic" alt="Portfolio PPT CeylDigital" class="w-full h-48 sm:h-64 object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="p-4 bg-white border-t border-lilac-100">
+                        <span class="text-[10px] font-bold text-lilac-600 uppercase">PowerPoint</span>
+                        <h4 class="font-bold text-sm text-lilac-900">PPT Aesthetic Minimalis</h4>
+                    </div>
+                </div>
+
+                <!-- Sample 2 -->
+                <div onclick="openLightbox('https://placehold.co/800x600/FAF7FF/2A1652?text=CeylDigital+Poster+Event', 'Desain Poster Event Aesthetic')" class="sticker-card rounded-3xl overflow-hidden group cursor-pointer reveal-element relative">
+                    <img src="https://placehold.co/600x450/FAF7FF/2A1652?text=Poster+Event" alt="Portfolio Poster CeylDigital" class="w-full h-48 sm:h-64 object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="p-4 bg-white border-t border-lilac-100">
+                        <span class="text-[10px] font-bold text-lilac-600 uppercase">Poster</span>
+                        <h4 class="font-bold text-sm text-lilac-900">Poster Event & Webinar</h4>
+                    </div>
+                </div>
+
+                <!-- Sample 3 -->
+                <div onclick="openLightbox('https://placehold.co/800x600/F3ECFF/2A1652?text=CeylDigital+Mindmap+Concept', 'Desain Mindmap Konsep')" class="sticker-card rounded-3xl overflow-hidden group cursor-pointer reveal-element relative">
+                    <img src="https://placehold.co/600x450/F3ECFF/2A1652?text=Mindmap+Concept" alt="Portfolio Mindmap CeylDigital" class="w-full h-48 sm:h-64 object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="p-4 bg-white border-t border-lilac-100">
+                        <span class="text-[10px] font-bold text-lilac-600 uppercase">Mind Mapping</span>
+                        <h4 class="font-bold text-sm text-lilac-900">Mindmap Modul Ringkas</h4>
+                    </div>
+                </div>
+
+                <!-- Sample 4 -->
+                <div onclick="openLightbox('https://placehold.co/800x600/D5B8FF/2A1652?text=CeylDigital+Twibbon+PNG', 'Desain Twibbon PNG')" class="sticker-card rounded-3xl overflow-hidden group cursor-pointer reveal-element relative">
+                    <img src="https://placehold.co/600x450/D5B8FF/2A1652?text=Twibbon+Frame" alt="Portfolio Twibbon CeylDigital" class="w-full h-48 sm:h-64 object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="p-4 bg-white border-t border-lilac-100">
+                        <span class="text-[10px] font-bold text-lilac-600 uppercase">Twibbon</span>
+                        <h4 class="font-bold text-sm text-lilac-900">Frame Twibbon Acara</h4>
+                    </div>
+                </div>
+
+                <!-- Sample 5 -->
+                <div onclick="openLightbox('https://placehold.co/800x600/E6D5FF/2A1652?text=CeylDigital+Dokumen+Formatting', 'Formatting Dokumen & Makalah')" class="sticker-card rounded-3xl overflow-hidden group cursor-pointer reveal-element relative">
+                    <img src="https://placehold.co/600x450/E6D5FF/2A1652?text=Formatting+Makalah" alt="Portfolio Formatting CeylDigital" class="w-full h-48 sm:h-64 object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="p-4 bg-white border-t border-lilac-100">
+                        <span class="text-[10px] font-bold text-lilac-600 uppercase">Dokumen</span>
+                        <h4 class="font-bold text-sm text-lilac-900">Layout & Penataan Makalah</h4>
+                    </div>
+                </div>
+
+                <!-- Sample 6 -->
+                <div onclick="openLightbox('https://placehold.co/800x600/B892FF/2A1652?text=CeylDigital+Portofolio+Design', 'Desain Portofolio Canva')" class="sticker-card rounded-3xl overflow-hidden group cursor-pointer reveal-element relative">
+                    <img src="https://placehold.co/600x450/B892FF/2A1652?text=Portofolio+Design" alt="Portfolio Canva CeylDigital" class="w-full h-48 sm:h-64 object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="p-4 bg-white border-t border-lilac-100">
+                        <span class="text-[10px] font-bold text-lilac-600 uppercase">Portofolio</span>
+                        <h4 class="font-bold text-sm text-lilac-900">Layout Portofolio Diri</h4>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- LIGHTBOX PREVIEW MODAL -->
+    <div id="lightboxModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-darkText/80 backdrop-blur-md opacity-0 pointer-events-none transition-all duration-300" onclick="closeLightbox()">
+        <div class="max-w-3xl w-full bg-white rounded-3xl p-4 shadow-2xl relative transform scale-95 transition-all" onclick="event.stopPropagation()">
+            <button onclick="closeLightbox()" class="absolute top-4 right-4 w-10 h-10 rounded-full bg-lilac-100 text-lilac-800 flex items-center justify-center hover:bg-lilac-200">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+            <img id="lightboxImg" src="" alt="Preview" class="w-full h-auto rounded-2xl mb-4 max-h-[75vh] object-contain bg-lilac-50">
+            <h4 id="lightboxTitle" class="font-display font-extrabold text-lg text-lilac-900 text-center">Judul Preview</h4>
+        </div>
+    </div>
+
+    <!-- SECTION 8: TESTIMONIALS -->
+    <section class="py-20 bg-white border-t border-lilac-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-2xl mx-auto mb-12 reveal-element">
+                <span class="px-4 py-1.5 rounded-full bg-lilac-100 text-lilac-800 text-xs font-extrabold uppercase">Pengalaman Klien</span>
+                <h2 class="font-display font-extrabold text-3xl sm:text-5xl text-lilac-900 mt-3">Ulasan Klien</h2>
+                
+                <div class="mt-4 inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-amber-50 border border-amber-200 text-amber-900 text-xs font-semibold">
+                    <i class="fa-solid fa-circle-info text-amber-600"></i>
+                    <span>Catatan: Di bawah ini merupakan contoh / placeholder testimoni ulasan.</span>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                
+                <!-- Review 1 -->
+                <div class="sticker-card p-6 rounded-3xl bg-lilac-50/50 border border-lilac-200 flex flex-col justify-between reveal-element">
+                    <div>
+                        <div class="flex items-center gap-1 text-amber-400 text-sm mb-4">
+                            ★ ★ ★ ★ ★
+                        </div>
+                        <p class="text-sm text-darkText/80 font-medium leading-relaxed">
+                            "Pelayanannya cepat banget dan hasilnya rapi! PPT Canva-nya estetik sesuai dengan arahan tema warna lilac yang aku minta. Makasih CeylDigital!"
+                        </p>
+                    </div>
+                    <div class="mt-6 flex items-center gap-3 pt-4 border-t border-lilac-200">
+                        <div class="w-10 h-10 rounded-full bg-lilac-300 flex items-center justify-center font-bold text-lilac-900 text-sm">
+                            A
+                        </div>
+                        <div>
+                            <h5 class="font-bold text-sm text-lilac-900">@amelia_design</h5>
+                            <span class="text-[11px] text-lilac-600">Order PPT Canva</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="sticker-card p-6 rounded-3xl bg-lilac-50/50 border border-lilac-200 flex flex-col justify-between reveal-element">
+                    <div>
+                        <div class="flex items-center gap-1 text-amber-400 text-sm mb-4">
+                            ★ ★ ★ ★ ★
+                        </div>
+                        <p class="text-sm text-darkText/80 font-medium leading-relaxed">
+                            "Desainnya sesuai request banget. Minta edit daftar isi & daftar pustaka makalah langsung selesai kurang dari sehari. Recomended!"
+                        </p>
+                    </div>
+                    <div class="mt-6 flex items-center gap-3 pt-4 border-t border-lilac-200">
+                        <div class="w-10 h-10 rounded-full bg-pastelPink flex items-center justify-center font-bold text-pink-900 text-sm">
+                            N
+                        </div>
+                        <div>
+                            <h5 class="font-bold text-sm text-lilac-900">@nadia.art</h5>
+                            <span class="text-[11px] text-lilac-600">Order Edit Dokumen</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="sticker-card p-6 rounded-3xl bg-lilac-50/50 border border-lilac-200 flex flex-col justify-between reveal-element">
+                    <div>
+                        <div class="flex items-center gap-1 text-amber-400 text-sm mb-4">
+                            ★ ★ ★ ★ ★
+                        </div>
+                        <p class="text-sm text-darkText/80 font-medium leading-relaxed">
+                            "Fast response dan revisinya membantu banget! Admin CeylDigital sabar melayani detail mindmap & twibbon acara. Penyelamat deadline!"
+                        </p>
+                    </div>
+                    <div class="mt-6 flex items-center gap-3 pt-4 border-t border-lilac-200">
+                        <div class="w-10 h-10 rounded-full bg-pastelYellow flex items-center justify-center font-bold text-amber-900 text-sm">
+                            K
+                        </div>
+                        <div>
+                            <h5 class="font-bold text-sm text-lilac-900">@karina_creatives</h5>
+                            <span class="text-[11px] text-lilac-600">Order Mindmap & Twibbon</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION 9: KETENTUAN SERVICE RULES -->
+    <section id="ketentuan" class="py-16 bg-gradient-to-b from-white to-lilac-100/50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="sticker-card p-6 sm:p-10 rounded-4xl bg-white border-2 border-lilac-300 reveal-element">
+                
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-12 h-12 rounded-2xl bg-lilac-600 text-white flex items-center justify-center text-xl shadow-md">
+                        <i class="fa-solid fa-scroll"></i>
+                    </div>
+                    <div>
+                        <span class="text-xs font-extrabold text-lilac-600 uppercase">Aturan & Panduan</span>
+                        <h3 class="font-display font-extrabold text-2xl text-lilac-900">Ketentuan Layanan CeylDigital</h3>
+                    </div>
+                </div>
+
+                <ul class="space-y-4 text-sm text-darkText/85 font-semibold mb-8">
+                    <li class="flex items-start gap-3">
+                        <i class="fa-solid fa-circle-xmark text-rose-500 text-base mt-0.5"></i>
+                        <span><strong>Dilarang cancel</strong> ketika pesanan sudah masuk dalam waktu pengerjaan.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i class="fa-solid fa-circle-check text-emerald-500 text-base mt-0.5"></i>
+                        <span><strong>Pembayaran di akhir</strong> setelah hasil pengerjaan selesai dicek dan disetujui.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i class="fa-solid fa-receipt text-lilac-600 text-base mt-0.5"></i>
+                        <span>Wajib <strong>mengirimkan bukti pembayaran</strong> via WhatsApp setelah transfer.</span>
+                    </li>
+                </ul>
+
+                <!-- Disclaimer Box -->
+                <div class="p-4 rounded-2xl bg-lilac-50 border border-lilac-200 text-xs text-lilac-900 font-medium leading-relaxed">
+                    <span class="font-bold text-lilac-700 block mb-1">✦ Disclaimer Layanan:</span>
+                    Layanan CeylDigital merupakan bantuan teknis editing, formatting dokumen, merangkum catatan, dan desain grafis visual. Layanan ini hadir untuk membantu efisiensi waktu pengerjaan kamu.
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 10: ORDER FORM SECTION -->
+    <section id="order" class="py-20 bg-gradient-to-b from-lilac-50 to-white relative">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-2xl mx-auto mb-12 reveal-element">
+                <span class="px-4 py-1.5 rounded-full bg-lilac-100 text-lilac-800 text-xs font-extrabold uppercase">✦ Form Order Direct ✦</span>
+                <h2 class="font-display font-extrabold text-4xl sm:text-5xl text-lilac-900 mt-3">Yuk, Beresin Tugasmu ✦</h2>
+                <p class="text-base text-darkText/70 mt-2 font-medium">Kirimin detailnya, pilih layanannya, dan kita mulai pengerjaannya.</p>
+            </div>
+
+            <div class="sticker-card p-6 sm:p-10 rounded-4xl bg-white relative reveal-element">
+                <form id="orderForm" onsubmit="submitOrderForm(event)" class="space-y-6">
+                    
+                    <div class="grid sm:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs font-extrabold text-lilac-900 uppercase tracking-wider mb-2">Nama Lengkap / Panggilan *</label>
+                            <input type="text" id="orderNama" required placeholder="Contoh: Clara" class="w-full px-4 py-3.5 rounded-2xl bg-lilac-50/50 border border-lilac-200 focus:outline-none focus:border-lilac-600 focus:bg-white text-sm font-semibold text-darkText transition-all">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-extrabold text-lilac-900 uppercase tracking-wider mb-2">Nomor WhatsApp *</label>
+                            <input type="tel" id="orderWa" required placeholder="08xxxxxxxxxx" class="w-full px-4 py-3.5 rounded-2xl bg-lilac-50/50 border border-lilac-200 focus:outline-none focus:border-lilac-600 focus:bg-white text-sm font-semibold text-darkText transition-all">
+                        </div>
+                    </div>
+
+                    <div class="grid sm:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs font-extrabold text-lilac-900 uppercase tracking-wider mb-2">Pilih Jenis Layanan *</label>
+                            <select id="orderLayanan" required class="w-full px-4 py-3.5 rounded-2xl bg-lilac-50/50 border border-lilac-200 focus:outline-none focus:border-lilac-600 focus:bg-white text-sm font-semibold text-darkText transition-all">
+                                <option value="" disabled selected>-- Pilih Layanan --</option>
+                                <optgroup label="Makalah">
+                                    <option value="Makalah (Ada Materi) - 4k/slide">Makalah (Ada Materi) - 4k/slide</option>
+                                    <option value="Makalah (No Materi) - 2k/slide">Makalah (No Materi) - 2k/slide</option>
+                                    <option value="Rangkuman File - 6k">Rangkuman File - 6k</option>
+                                    <option value="Rangkuman Video - 8k">Rangkuman Video - 8k</option>
+                                </optgroup>
+                                <optgroup label="Edit Dokumen">
+                                    <option value="Daftar Pustaka - 5k">Daftar Pustaka - 5k</option>
+                                    <option value="Daftar Isi - 10k">Daftar Isi - 10k</option>
+                                    <option value="Daftar Halaman - 10k">Daftar Halaman - 10k</option>
+                                    <option value="Merapikan Dokumen - 2k/slide">Merapikan Dokumen - 2k/slide</option>
+                                </optgroup>
+                                <optgroup label="Desain Canva">
+                                    <option value="Desain Poster - 5k">Desain Poster - 5k</option>
+                                    <option value="PowerPoint - 2k/slide">PowerPoint - 2k/slide</option>
+                                    <option value="Logo Profil - 5k">Logo Profil - 5k</option>
+                                    <option value="Struktur Kelas/Organisasi - 5k">Struktur Organisasi - 5k</option>
+                                    <option value="Mind Mapping - 8k">Mind Mapping - 8k</option>
+                                    <option value="ID Card - 5k">ID Card - 5k</option>
+                                    <option value="Banner/Spanduk - 15k">Banner/Spanduk - 15k</option>
+                                    <option value="Twibbon - 10k">Twibbon - 10k</option>
+                                    <option value="Portofolio - 5k/slide">Portofolio - 5k/slide</option>
+                                </optgroup>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-extrabold text-lilac-900 uppercase tracking-wider mb-2">Jumlah Slide / Halaman / File</label>
+                            <input type="number" id="orderQty" min="1" value="1" placeholder="Misal: 10 slide" class="w-full px-4 py-3.5 rounded-2xl bg-lilac-50/50 border border-lilac-200 focus:outline-none focus:border-lilac-600 focus:bg-white text-sm font-semibold text-darkText transition-all">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-extrabold text-lilac-900 uppercase tracking-wider mb-2">Tenggat Waktu / Deadline *</label>
+                        <input type="text" id="orderDeadline" required placeholder="Contoh: Besok sore jam 16.00 WIB" class="w-full px-4 py-3.5 rounded-2xl bg-lilac-50/50 border border-lilac-200 focus:outline-none focus:border-lilac-600 focus:bg-white text-sm font-semibold text-darkText transition-all">
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-extrabold text-lilac-900 uppercase tracking-wider mb-2">Detail & Instruksi Pesanan *</label>
+                        <textarea id="orderDetail" rows="3" required placeholder="Tuliskan topik, instruksi khusus, request warna/tema..." class="w-full px-4 py-3.5 rounded-2xl bg-lilac-50/50 border border-lilac-200 focus:outline-none focus:border-lilac-600 focus:bg-white text-sm font-semibold text-darkText transition-all"></textarea>
+                    </div>
+
+                    <div class="p-4 rounded-2xl bg-lilac-50 border border-dashed border-lilac-300 flex items-center justify-between text-xs text-lilac-800 font-semibold">
+                        <span class="flex items-center gap-2">
+                            <i class="fa-solid fa-cloud-arrow-up text-lg text-lilac-600"></i>
+                            File/materi pendukung bisa dilampirkan langsung via WhatsApp.
+                        </span>
+                        <span class="px-2.5 py-1 rounded-md bg-white border border-lilac-200 text-[10px]">Info File</span>
+                    </div>
+
+                    <button type="submit" class="w-full py-4 rounded-2xl bg-lilac-600 hover:bg-lilac-700 text-white font-extrabold text-base shadow-lg shadow-lilac-300 transition-all transform hover:-translate-y-0.5 btn-glow flex items-center justify-center gap-3">
+                        <i class="fa-brands fa-whatsapp text-xl"></i>
+                        <span>Kirim Pesanan via WhatsApp</span>
+                    </button>
+
+                </form>
+            </div>
+
+            <!-- Contact Box -->
+            <div class="mt-12 text-center p-8 rounded-4xl bg-lilac-100/60 border border-lilac-200 flex flex-col sm:flex-row items-center justify-between gap-6 reveal-element">
+                <div class="text-left">
+                    <span class="text-xs font-bold text-lilac-600 uppercase">Contact Person Direct</span>
+                    <h4 class="font-display font-extrabold text-2xl text-lilac-900 mt-0.5">083121999712</h4>
+                    <p class="text-xs text-darkText/70 font-medium mt-1">Admin fast response melayani pertanyaan & order layanan.</p>
+                </div>
+                <a href="https://wa.me/6283121999712" target="_blank" rel="noopener noreferrer" class="px-7 py-3.5 rounded-2xl bg-emerald-500 hover:bg-emerald-600 text-white font-extrabold text-sm shadow-md transition-all flex items-center gap-2.5 whitespace-nowrap">
+                    <i class="fa-brands fa-whatsapp text-xl"></i>
+                    <span>Chat Admin WA</span>
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-lilac-900 text-white py-12 border-t border-lilac-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-12 gap-8 items-center pb-8 border-b border-lilac-800">
+                
+                <div class="md:col-span-6 text-center md:text-left">
+                    <div class="flex items-center justify-center md:justify-start gap-3 mb-2">
+                        <span class="w-9 h-9 rounded-2xl bg-lilac-500 flex items-center justify-center text-white text-sm font-extrabold">C</span>
+                        <span class="font-display font-extrabold text-2xl tracking-tight">CeylDigital</span>
+                    </div>
+                    <p class="text-xs text-lilac-200 font-medium">@jokibyceyl_ • Helping you organize, design & finish your documents.</p>
+                </div>
+
+                <div class="md:col-span-6 flex flex-wrap items-center justify-center md:justify-end gap-3 text-xs">
+                    <span class="text-lilac-300 font-bold mr-2">Metode Pembayaran:</span>
+                    <span class="px-3.5 py-1.5 rounded-xl bg-blue-600 font-extrabold text-white shadow-sm flex items-center gap-1.5">
+                        <i class="fa-solid fa-wallet"></i> DANA
+                    </span>
+                    <span class="px-3.5 py-1.5 rounded-xl bg-orange-600 font-extrabold text-white shadow-sm flex items-center gap-1.5">
+                        <i class="fa-solid fa-bag-shopping"></i> ShopeePay
+                    </span>
+                    <span class="px-3.5 py-1.5 rounded-xl bg-lilac-800 border border-lilac-600 font-semibold text-lilac-100">
+                        Bank Transfer
+                    </span>
+                </div>
+
+            </div>
+
+            <div class="pt-8 text-center text-xs text-lilac-300 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <p>© 2026 CeylDigital (@jokibyceyl_). All rights reserved.</p>
+                <div class="flex items-center gap-4">
+                    <a href="#home" class="hover:text-white transition-colors">Home</a>
+                    <a href="#layanan" class="hover:text-white transition-colors">Layanan</a>
+                    <a href="#portfolio" class="hover:text-white transition-colors">Portfolio</a>
+                    <a href="#ketentuan" class="hover:text-white transition-colors">Ketentuan</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" onclick="scrollToTop()" aria-label="Back to top" class="fixed bottom-6 right-6 z-40 w-12 h-12 rounded-2xl bg-lilac-600 text-white flex items-center justify-center shadow-xl opacity-0 pointer-events-none transition-all duration-300 hover:bg-lilac-700 hover:scale-110">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // IntersectionObserver for Smooth Scroll Reveal
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -40px 0px'
+            };
+
+            const revealObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.reveal-element').forEach(el => {
+                revealObserver.observe(el);
+            });
+        });
+
+        // Hide Loader
+        window.addEventListener('load', () => {
+            const loader = document.getElementById('loader');
+            if (loader) {
+                setTimeout(() => {
+                    loader.classList.add('opacity-0');
+                    setTimeout(() => {
+                        loader.style.display = 'none';
+                    }, 500);
+                }, 400);
+            }
+        });
+
+        // Mobile Drawer Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileDrawer = document.getElementById('mobileDrawer');
+        const menuIcon = document.getElementById('menuIcon');
+
+        if (mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', () => {
+                const isHidden = mobileDrawer.classList.contains('hidden');
+                if (isHidden) {
+                    mobileDrawer.classList.remove('hidden');
+                    menuIcon.classList.replace('fa-bars', 'fa-xmark');
+                } else {
+                    mobileDrawer.classList.add('hidden');
+                    menuIcon.classList.replace('fa-xmark', 'fa-bars');
+                }
+            });
+        }
+
+        document.querySelectorAll('.mobile-link').forEach(link => {
+            link.addEventListener('click', () => {
+                if (mobileDrawer) mobileDrawer.classList.add('hidden');
+                if (menuIcon) menuIcon.classList.replace('fa-xmark', 'fa-bars');
+            });
+        });
+
+        // Scroll Progress Bar & Back to top
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            const progressBar = document.getElementById('progressBar');
+            if (progressBar) progressBar.style.width = scrolled + '%';
+
+            const backToTopBtn = document.getElementById('backToTop');
+            if (backToTopBtn) {
+                if (winScroll > 400) {
+                    backToTopBtn.classList.remove('opacity-0', 'pointer-events-none');
+                } else {
+                    backToTopBtn.classList.add('opacity-0', 'pointer-events-none');
+                }
+            }
+        });
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Service Modal Handlers
+        let currentSelectedService = '';
+
+        function openServiceModal(name, price, unit, desc, estimate) {
+            currentSelectedService = `${name} - ${price}k/${unit}`;
+            document.getElementById('modalTitle').innerText = name;
+            document.getElementById('modalDesc').innerText = desc;
+            document.getElementById('modalPrice').innerText = `Rp ${price} (${unit})`;
+            document.getElementById('modalEstimate').innerText = estimate;
+
+            const modal = document.getElementById('serviceModal');
+            const content = document.getElementById('serviceModalContent');
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+            content.classList.remove('scale-95');
+            content.classList.add('scale-100');
+        }
+
+        function closeServiceModal() {
+            const modal = document.getElementById('serviceModal');
+            const content = document.getElementById('serviceModalContent');
+            content.classList.remove('scale-100');
+            content.classList.add('scale-95');
+            modal.classList.add('opacity-0', 'pointer-events-none');
+        }
+
+        function selectServiceFromModal() {
+            closeServiceModal();
+            const orderLayananSelect = document.getElementById('orderLayanan');
+            if (orderLayananSelect) {
+                for (let option of orderLayananSelect.options) {
+                    if (option.value.includes(currentSelectedService.split(' - ')[0])) {
+                        option.selected = true;
+                        break;
+                    }
+                }
+            }
+            document.getElementById('order').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Lightbox Handlers
+        function openLightbox(imgSrc, title) {
+            document.getElementById('lightboxImg').src = imgSrc;
+            document.getElementById('lightboxTitle').innerText = title;
+            const modal = document.getElementById('lightboxModal');
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+        }
+
+        function closeLightbox() {
+            const modal = document.getElementById('lightboxModal');
+            modal.classList.add('opacity-0', 'pointer-events-none');
+        }
+
+        // Order Form Submit Handler (WhatsApp Direct)
+        function submitOrderForm(event) {
+            event.preventDefault();
+
+            const nama = document.getElementById('orderNama').value.trim();
+            const wa = document.getElementById('orderWa').value.trim();
+            const layanan = document.getElementById('orderLayanan').value;
+            const qty = document.getElementById('orderQty').value || '1';
+            const deadline = document.getElementById('orderDeadline').value.trim();
+            const detail = document.getElementById('orderDetail').value.trim();
+
+            const text = `Halo CeylDigital (@jokibyceyl_)! Saya ingin memesan layanan digital:%0A%0A` +
+                         `✦ *Nama*: ${encodeURIComponent(nama)}%0A` +
+                         `✦ *No WA*: ${encodeURIComponent(wa)}%0A` +
+                         `✦ *Layanan*: ${encodeURIComponent(layanan)}%0A` +
+                         `✦ *Jumlah/Slide*: ${encodeURIComponent(qty)}%0A` +
+                         `✦ *Deadline*: ${encodeURIComponent(deadline)}%0A` +
+                         `✦ *Detail/Instruksi*: ${encodeURIComponent(detail)}%0A%0A` +
+                         `Mohon konfirmasi total tagihan dan instruksi pengiriman materi. Terima kasih!`;
+
+            const waNumber = '6283121999712';
+            const waUrl = `https://wa.me/${waNumber}?text=${text}`;
+
+            window.open(waUrl, '_blank');
+        }
+    </script>
+</body>
+</html>
+```
